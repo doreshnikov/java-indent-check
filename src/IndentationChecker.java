@@ -83,7 +83,7 @@ public class IndentationChecker {
                         }
                         // also it is possible that there is \/*/ line,
                         // but there is no way to find \ outside of a comment
-                    } else if (line.charAt(i) == '/' && line.charAt(i + 1) == '*') {
+                    } else if (line.charAt(i - 1) == '/' && line.charAt(i) == '*') {
                         comment = true;
                     }
                     commentOn[i] = comment;
