@@ -30,10 +30,8 @@ public class Example {
 												exampleValue =
 												'b' - 'a';
 						}
-
-				//
-				//
-		/*
+						////
+						/*
   comment
 		 */
 						}
@@ -46,7 +44,6 @@ public class Example {
 		 */
 						/*
 		*\\/ */	/*	 i don't even know what this line is about	/** *\ */
-		 /**/
 
 						/**
 		* "string inside the comment with *//* breaks the comment, so we need a new start""

@@ -35,11 +35,13 @@ public class IndentationChecker {
      */
     private void check(FastScanner in) throws InvalidObjectException {
         String line;
+        int lineNumber = 0;
         boolean comment = false;
         ArrayList<Integer> indent = new ArrayList<>();
         Character indentSymbol = null;
 
         while ((line = in.nextLine()) != null) {
+            lineNumber++;
             // read the document to the end
             if (!comment && line.length() > 0) {
                 // if the line is a part of the code
@@ -71,9 +73,10 @@ public class IndentationChecker {
                 for (int i = 1; i < line.length(); i++) {
                     if (line.charAt(i) == '"' && !comment) {
                         string = !string;
-                        if (string) {
-                            continue;
-                        }
+                    }
+                    if (string) {
+                        // because any comment start/end symbols inside a code string do not represent actual comment
+                        continue;
                     }
                     if (line.charAt(i - 1) == '*' && line.charAt(i) == '/') {
                         if (i == 1 || !(line.charAt(i - 2) == '/' && !commentOn[i - 2])) {
